@@ -10,6 +10,7 @@ test.describe('E2E Test Suite', () => {
     test('Validate programming languages statistics cloumn chart', async ({ resultPage }) => {
         await resultPage.ClickAllowAll();
         await resultPage.ClickExpand();
+        await resultPage.AssertCloumnChart();
     });
 
     test.afterAll(async ({ page }) => {
