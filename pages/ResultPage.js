@@ -19,6 +19,9 @@ exports.ResultPage = class ResultPage {
         await this.btnAllowAll.click();
     }
     async AssertCloumnChart() {
-        console.log("Number of prgramming languages - " + await this.columns.count());
+        var columnsCount = await this.columns.count();
+        for (let i = 1; i <= columnsCount; i++) {
+        //console.log("Number of prgramming languages - " + await this.columns.count());
+        }
     }
 }
