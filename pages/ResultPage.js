@@ -22,6 +22,8 @@ exports.ResultPage = class ResultPage {
         var columnsCount = await this.columns.count();
         for (let i = 1; i <= columnsCount; i++) {
         //console.log("Number of prgramming languages - " + await this.columns.count());
+        await this.page.locator(`(//*[name()='rect'][@class='highcharts-point highcharts-color-0'])[${i}]`).hover();
+
         }
     }
 }
