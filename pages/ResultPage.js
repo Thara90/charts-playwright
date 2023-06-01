@@ -21,11 +21,12 @@ exports.ResultPage = class ResultPage {
     }
     async AssertCloumnChart() {
         var columnsCount = await this.columnsLanguages.count();
+        console.log("Number of Programming languages in chart : " + columnsCount);
         for (let i = 1; i <= columnsCount; i++) {
         await this.page.locator(`(//*[name()='rect'][@class='highcharts-point highcharts-color-0'])[${i}]`).hover();
         var tooltip_language = await this.tooltipLanguage.textContent();
         var tooltip_percentage = await this.tooltipPercentage.textContent();
-        console.log("Programming Language : " + tooltip_language + ", Percentage : " + tooltip_percentage);
+        console.log("Programming language : " + tooltip_language + ", Percentage : " + tooltip_percentage);
         }
     }
 }
