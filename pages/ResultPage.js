@@ -6,8 +6,9 @@ exports.ResultPage = class ResultPage {
         this.page = page;
         this.btnExpand = page.locator(`(//button[contains(@class,'button button--primary')])[1]`);
         this.btnAllowAll = page.locator(`//button[@id='onetrust-accept-btn-handler']`);
-        //this.btnAllowAll = page.locator(`(//*[name()='rect'][@class='highcharts-point highcharts-color-0'])[1]`);
-        this.columns = page.locator(`.highcharts-series-group > .highcharts-series-0 > .highcharts-point`);
+        this.columnsLanguages= page.locator(`(//*[name()='rect'][@class='highcharts-point highcharts-color-0'])`);
+        this.tooltipLanguage = page.locator(`//table[@class='tooltip']//tbody/tr[1]/td/span`);
+        this.tooltipPercentage = page.locator(`//table[@class='tooltip']//tbody/tr[3]/td`);
     }
     async LoadWebSite() {
         await this.page.goto('https://www.statista.com/statistics/793628/worldwide-developer-survey-most-used-languages/');
@@ -19,11 +20,12 @@ exports.ResultPage = class ResultPage {
         await this.btnAllowAll.click();
     }
     async AssertCloumnChart() {
-        var columnsCount = await this.columns.count();
+        var columnsCount = await this.columnsLanguages.count();
         for (let i = 1; i <= columnsCount; i++) {
-        //console.log("Number of prgramming languages - " + await this.columns.count());
         await this.page.locator(`(//*[name()='rect'][@class='highcharts-point highcharts-color-0'])[${i}]`).hover();
-
+        await this.page.waitForTimeout(3000);
+        var tooltip_language = await this.tooltipLanguage.textContent();
+        console.log(tooltip_language);
         }
     }
 }
