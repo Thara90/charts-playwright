@@ -23,9 +23,9 @@ exports.ResultPage = class ResultPage {
         var columnsCount = await this.columnsLanguages.count();
         for (let i = 1; i <= columnsCount; i++) {
         await this.page.locator(`(//*[name()='rect'][@class='highcharts-point highcharts-color-0'])[${i}]`).hover();
-        await this.page.waitForTimeout(3000);
         var tooltip_language = await this.tooltipLanguage.textContent();
-        console.log(tooltip_language);
+        var tooltip_percentage = await this.tooltipPercentage.textContent();
+        console.log("Programming Language : " + tooltip_language + ", Percentage : " + tooltip_percentage);
         }
     }
 }
