@@ -1,1 +1,1 @@
-# Playwright_POM
+# charts-playwright
