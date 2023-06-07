@@ -1,13 +1,3 @@
 {
-    "user": {
-        "username": "JackG",
-        "password": "jack@123",
-        "name": "Jack Gomez",
-        "role": "CUSTOMER"
-    },
-    "financialDetails": {
-        "totalBalance": 350,
-        "creditAvailable": 17800,
-        "dueToday": 180
-    }
+
 }
