@@ -1,1 +1,1 @@
-# charts-playwright
+# charts-playwright with javascript
