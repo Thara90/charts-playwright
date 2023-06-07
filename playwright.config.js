@@ -90,14 +90,28 @@ module.exports = defineConfig({
     // },
 
     /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { channel: 'chrome' },
-    // },
+    {
+      name: 'Microsoft-Edge',
+      use: {
+        ...devices['Desktop Edge'],
+        channel: 'msedge',
+        headless: false,
+        viewport: { width: 1920, height: 1049 },
+        screenshot: 'on',
+        trace: 'retain-on-failure'
+      },
+    },
+    {
+      name: 'Google-Chrome',
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chrome',
+        headless: false,
+        viewport: { width: 1920, height: 1049 },
+        screenshot: 'on',
+        trace: 'retain-on-failure'
+      },
+    }
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
